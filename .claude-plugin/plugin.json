@@ -1,0 +1,19 @@
+{
+  "name": "mindframes",
+  "version": "1.1.0",
+  "description": "Create and manage Mindframes presentations through MCP.",
+  "author": {
+    "name": "ConceptCraft AI",
+    "url": "https://www.mindframes.app"
+  },
+  "homepage": "https://www.mindframes.app",
+  "repository": "https://github.com/inizio-inc/mindframes-plugin",
+  "displayName": "Mindframes Presentations",
+  "keywords": [
+    "mindframes",
+    "presentations",
+    "slides",
+    "deck",
+    "mcp"
+  ]
+}

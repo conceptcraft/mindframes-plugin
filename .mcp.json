@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mindframes": {
+      "type": "http",
+      "url": "https://www.mindframes.app/mcp/presentations"
+    }
+  }
+}

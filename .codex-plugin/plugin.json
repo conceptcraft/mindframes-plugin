@@ -1,0 +1,36 @@
+{
+  "name": "mindframes",
+  "version": "1.1.0",
+  "description": "Connect Codex to Mindframes presentations.",
+  "author": {
+    "name": "ConceptCraft AI",
+    "url": "https://www.mindframes.app"
+  },
+  "homepage": "https://www.mindframes.app",
+  "repository": "https://github.com/inizio-inc/mindframes-plugin",
+  "keywords": [
+    "mindframes",
+    "presentations",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Mindframes",
+    "shortDescription": "Create and manage Mindframes presentations.",
+    "longDescription": "Connects Codex to your Mindframes workspace through OAuth.",
+    "developerName": "ConceptCraft AI",
+    "category": "Productivity",
+    "capabilities": [
+      "MCP",
+      "Skills"
+    ],
+    "websiteURL": "https://www.mindframes.app",
+    "privacyPolicyURL": "https://www.mindframes.app/en/privacy",
+    "termsOfServiceURL": "https://www.mindframes.app/en/terms",
+    "defaultPrompt": [
+      "Show my recent Mindframes presentations.",
+      "Create a presentation about my topic.",
+      "Help me organize a Mindframes presentation."
+    ]
+  }
+}
