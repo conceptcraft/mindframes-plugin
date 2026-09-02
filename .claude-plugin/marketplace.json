@@ -1,0 +1,16 @@
+{
+  "name": "mindframes",
+  "owner": {
+    "name": "ConceptCraft AI",
+    "url": "https://www.mindframes.app"
+  },
+  "plugins": [
+    {
+      "name": "mindframes",
+      "source": "./",
+      "displayName": "Mindframes Presentations",
+      "description": "Create and manage Mindframes presentations through MCP.",
+      "category": "Productivity"
+    }
+  ]
+}
