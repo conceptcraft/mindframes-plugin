@@ -1,5 +1,6 @@
 {
   "name": "mindframes",
+  "description": "Mindframes presentation tools for Claude and Codex.",
   "owner": {
     "name": "ConceptCraft AI",
     "url": "https://www.mindframes.app"
