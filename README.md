@@ -28,8 +28,9 @@ with a stable idempotency key, poll to terminal, and only then report success.
 /plugin install mindframes
 ```
 
-Then follow `SETUP.md`, which the host runs for you: sign in to Mindframes and
-approve the consent screen.
+Then connect: run `/mcp`, pick **mindframes**, and approve the consent
+screen. The bundled `connecting-mindframes` skill walks Claude through it and
+through what to do when authorization expires or a workspace is wrong.
 
 ## Scopes
 

@@ -1,5 +1,5 @@
 ---
-name: setup
+name: connecting-mindframes
 description: Connects this plugin to a Mindframes workspace. Use when the plugin was just installed, when a presentation tool reports that authorization is required, or when the user asks to sign in to or switch Mindframes workspaces.
 ---
 
