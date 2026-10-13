@@ -1,13 +1,13 @@
 {
   "name": "mindframes",
-  "version": "1.2.0",
-  "description": "Create and manage Mindframes presentations through MCP.",
+  "version": "1.3.0",
+  "description": "Create, edit, export and share Mindframes presentations through MCP.",
   "author": {
     "name": "ConceptCraft AI",
     "url": "https://www.mindframes.app"
   },
   "homepage": "https://www.mindframes.app",
-  "repository": "https://github.com/inizio-inc/mindframes-plugin",
+  "repository": "https://github.com/conceptcraft/mindframes-plugin",
   "displayName": "Mindframes Presentations",
   "keywords": [
     "mindframes",

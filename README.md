@@ -1,55 +1,91 @@
 # Mindframes Presentations — Claude & Codex plugin
 
-Create, find, share and inspect [Mindframes](https://www.mindframes.app)
-presentations from Claude Code, Cowork and Codex.
-
-## What it does
-
-The plugin connects to one remote MCP server over OAuth and exposes a
-deliberately narrow presentation surface:
-
-| Tool | Purpose |
-| --- | --- |
-| `list_workspaces` | Pick the workspace every other call is scoped to |
-| `generate_presentation` | Start a deck; returns a `runId` |
-| `get_generation_status` | Poll that run until it reaches a terminal state |
-| `list_presentations` | Browse existing decks with stable ordering |
-| `get_presentation` | Read one deck, including slide detail |
-| `update_visibility` | Share or unshare a deck |
-| `get_templates` | List the workspace's slide templates |
-| `get_generation_limits` | Check remaining generation capacity |
-
-The bundled skill teaches the workflow — resolve the workspace, start once
-with a stable idempotency key, poll to terminal, and only then report success.
+Create, find, edit, export and share [Mindframes](https://www.mindframes.app)
+presentations from Claude (chat, Cowork and Claude Code) and Codex.
+Mindframes is a product of ConceptCraft AI.
 
 ## Install
 
+From the Claude plugin directory, or in Claude Code:
+
 ```
-/plugin install mindframes
+/plugin install mindframes --marketplace conceptcraft/mindframes-plugin
 ```
 
-Then connect: run `/mcp`, pick **mindframes**, and approve the consent
-screen. The bundled `connecting-mindframes` skill walks Claude through it and
-through what to do when authorization expires or a workspace is wrong.
+Then connect: run `/mcp`, pick **mindframes**, and approve the Mindframes
+sign-in and consent screen. The bundled `connecting-mindframes` skill walks
+Claude through it, and through what to do when authorization expires or a
+workspace is wrong. You need a Mindframes account; sign up at
+https://www.mindframes.app.
 
-## Scopes
+## What the plugin contains and does
 
-Consent requests exactly two scopes, `presentations:read` and
-`presentations:write`. This endpoint is presentation-only by construction — it
-registers eight tools and cannot reach videos, brands, agents, media or
-billing, whatever the account itself is entitled to.
+The plugin contains two skills and one remote MCP server declaration. It runs
+no code on your machine and installs no packages.
+
+- **MCP server:** `https://www.mindframes.app/mcp/presentations`, reached over
+  HTTPS with OAuth. Consent requests exactly two scopes,
+  `presentations:read` and `presentations:write`. This endpoint is
+  presentation-only: it cannot reach your videos, brands, agents, media or
+  billing.
+- **`creating-presentations` skill:** teaches Claude the workflow — pick the
+  workspace, start work once with a stable idempotency key, wait for the human
+  approval it asks for, poll until the run finishes, and only then report
+  success.
+- **`connecting-mindframes` skill:** handles sign-in, workspace selection and
+  authorization errors.
+
+The plugin sends data only to the Mindframes server above: the prompts,
+presentation content and choices you ask Claude to pass to these tools.
+
+## Tools
+
+| Tool | What it does |
+| --- | --- |
+| `list_workspaces` | Lists the workspaces you can use; every other call is scoped to one |
+| `list_presentations` | Lists presentations in the workspace |
+| `get_presentation` | Reads one presentation, its slides and its view and edit links |
+| `get_templates` | Lists slide design templates |
+| `get_generation_limits` | Shows your generation limits and usage |
+| `generate_presentation` | Starts creating a presentation, after your approval in the browser |
+| `get_generation_status` | Reports progress until the presentation is ready |
+| `continue_presentation_approval` | Delivers a request you already approved |
+| `edit_presentation` | Edits a saved presentation's slides, after your approval (available on request) |
+| `get_presentation_edit_status` | Reports progress of an edit |
+| `generate_speaker_notes` | Writes or rewrites speaker notes |
+| `get_speaker_notes_status` | Reports progress of speaker notes |
+| `set_speaker_notes` | Saves speaker notes you supply, word for word (free) |
+| `export_presentation` | Returns a short-lived download link for an HTML, PDF or PowerPoint file |
+| `update_visibility` | Sets who can open a presentation: you, your team, or anyone with the link |
+| `open_mindframes_presentations` | Opens the Mindframes presentation viewer inside a host that supports MCP Apps |
+| `create_presentation_studio_launch` | Prepares read-only Studio access for a presentation or a run in progress |
+
+## Example prompts
+
+- "Create a 6-slide presentation on our Q3 product launch for the sales team."
+- "List my five most recent Mindframes presentations."
+- "Write speaker notes for the launch presentation."
+- "Export the launch presentation as a PowerPoint file."
 
 ## Costs
 
-Generating a presentation spends Mindframes credits from the selected
-workspace. Reading, listing and sharing are free.
+Creating presentations, editing slides and writing speaker notes use
+Mindframes credits from the selected workspace, and you approve each new
+presentation and edit before it starts. Reading, listing, setting your own
+speaker notes, exporting and sharing are free.
 
-## Not included yet
+## Availability
 
-File export (PDF/PPTX) is intentionally absent from this release. It will be
-added once export artifacts are served from private, expiring storage.
+Editing slides by asking is available on request: contact us to turn it on for
+your workspace. Everything else works with any Mindframes account.
 
-## Source
+## Privacy and support
 
-The plugin is built from the Mindframes application repository and mirrored
-here. File issues at https://www.mindframes.app.
+- Privacy policy: https://www.mindframes.app/en/privacy
+- Terms of service: https://www.mindframes.app/en/terms
+- Support: support@conceptcraft.ai
+
+## License
+
+Proprietary. Copyright (c) 2026 ConceptCraft AI. All rights reserved. See
+[LICENSE](LICENSE).
